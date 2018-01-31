@@ -1,0 +1,1 @@
+aws cloudformation create-stack --stack-name odyssey-lab-kinesis-demo --template-body file://cloudformation/stack.yml
