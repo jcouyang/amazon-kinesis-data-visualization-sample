@@ -5,7 +5,7 @@
 The Amazon Kinesis Data Visualization Sample Application contains three components:
 
 - [X] A [KPL][kpl] producer to send data to [Amazon Kinesis][kinesis].
-- [X] An [KCL][kcl] consumer to compute the number of HTTP requests a resource received, and the HTTP referrer that sent them, over a sliding window.
+- [X] A [KCL][kcl] consumer to compute the number of HTTP requests a resource received, and the HTTP referrer of them, over a sliding window.
 - [ ] An embedded web server and real time chart to display counts as they are computed.
 
 The application will create one Amazon Kinesis stream with two shards and two Amazon DynamoDB tables in your AWS account.
