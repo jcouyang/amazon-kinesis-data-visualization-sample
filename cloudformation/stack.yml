@@ -1,0 +1,42 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Kinesis Demo
+Resources:
+  MyStream:
+    Type: "AWS::Kinesis::Stream"
+    Properties: 
+      Name: MyStreamDataSource
+      ShardCount: 2
+  KCLDynamoDBTable:
+    Type: "AWS::DynamoDB::Table"
+    Properties:
+      AttributeDefinitions:
+        -
+          AttributeName: leaseKey
+          AttributeType: S
+      KeySchema:
+        -
+          AttributeName: leaseKey
+          KeyType: HASH
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+  CountsDynamoDBTable:
+    Type: "AWS::DynamoDB::Table"
+    Properties:
+      AttributeDefinitions:
+        -
+          AttributeName: resource
+          AttributeType: S
+        -
+          AttributeName: timestamp
+          AttributeType: S
+      KeySchema:
+        -
+          AttributeName: resource
+          KeyType: HASH
+        -
+          AttributeName: timestamp
+          KeyType: RANGE
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
